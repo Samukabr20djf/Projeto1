@@ -6,11 +6,14 @@ form.addEventListener('submit', function(e){
     const campoA = document.getElementById('campo-a');
     const campoB = document.getElementById('campo-b');
 
-    if(campoA.value < campoB.value)
+    const valorA = parseFloat(campoA.value);
+    const valorB = parseFloat(campoB.value);
+
+    if(valorA < valorB)
     {
         alert('o campo B e maior');
     }
-    else if(campoA.value == campoB.value)
+    else if(valorA === valorB)
     {
         alert('os campos sao iguais');
     }
