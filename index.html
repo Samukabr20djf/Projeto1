@@ -1,24 +1,44 @@
-    <!DOCTYPE html>
-    <html lang="ptbr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Validação</title>
-        <link rel="stylesheet" href="./main.css">
-        
-    </head>
-    <body>
-        <header>
-            <div class="container">
-                <h1>Qual é o maior número?</h1>
-            </div>
-                    <form id="form-valido">
-                        <input type="number" id="campo-a" placeholder="campo A" required>
-                        <input type="number" id="campo-b" placeholder="campo B" required>
-                        <button id="btn-submit" type="submit">verificar números</button>
-                        <button id="reset-btn" type="reset">apagar números</button>
-                    </form>
-            <script src="./main.js"></script>
-        </header>
-    </body>
-    </html>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda de contatos Ebac</title>
+    <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+    <header>
+        <h1>Agenda de Contatos Ebac</h1>
+        <div class="container">
+            <form id="form-agenda">
+                <input type="text" id="nome-contato" placeholder="nome do contato" required>
+                <input type="number" id="numero-telefone" placeholder="telefone" required>
+                <button type="submit" id="btn-adicionar">adicionar</button>
+            </form>
+            <table cellspacing="0">
+                <thead>
+                    <tr>
+                        <th id="contact">
+                            Nome do contato
+                        </th>
+                        <th>
+                            Número de telefone
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            ---
+                        </td>
+                        <td>
+                            ---
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </header>
+    <script src="./main.js"></script>
+</body>
+</html>
