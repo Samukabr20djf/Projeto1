@@ -1,25 +1,47 @@
-const form = document.getElementById('form-valido');
+const form = document.getElementById('form-agenda');
+const NomeContato = [];
+const NumeroTelefone = [];
+
+let linhas = '';
 
 form.addEventListener('submit', function(e){
     e.preventDefault();
 
-    const campoA = document.getElementById('campo-a');
-    const campoB = document.getElementById('campo-b');
-
-    const valorA = parseFloat(campoA.value);
-    const valorB = parseFloat(campoB.value);
-
-    if(valorA < valorB)
-    {
-        alert('o campo B e maior');
-    }
-    else if(valorA === valorB)
-    {
-        alert('os campos sao iguais');
-    }
-    else 
-    {
-        alert('o campo a A e maior');
-    }
+    AdicionaLinha();
+    atualizaTabela();
 
 })
+
+function AdicionaLinha() {
+
+    const InputNomeContato = document.getElementById('nome-contato');
+    const inputNumeroTelefone = document.getElementById('numero-telefone');
+
+    if(NomeContato.includes(InputNomeContato.value)){
+    
+    alert(`o contato ${InputNomeContato.value} já foi adicionado`);
+
+    } else {
+    
+    NomeContato.push(InputNomeContato.value);
+    NumeroTelefone.push(inputNumeroTelefone.value);
+
+    let linha = '<tr>';
+    linha += `<td> ${InputNomeContato.value}`;
+    linha += `<td> ${inputNumeroTelefone.value}`;
+    linha += '</tr>';
+
+    linhas += linha;
+
+    }
+
+    InputNomeContato.value = '';
+    inputNumeroTelefone.value = '';
+
+}
+
+function atualizaTabela(){
+
+    const CorpoTabela = document.querySelector('tbody');
+    CorpoTabela.innerHTML = linhas;
+}
