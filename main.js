@@ -1,47 +1,32 @@
-const form = document.getElementById('form-agenda');
-const NomeContato = [];
-const NumeroTelefone = [];
-
+const form = document.getElementById('form-lista');
+const NomeTarefa = [];
 let linhas = '';
 
-form.addEventListener('submit', function(e){
+
+form.addEventListener('submit', function(e) {
     e.preventDefault();
-
-    AdicionaLinha();
-    atualizaTabela();
-
 })
 
-function AdicionaLinha() {
+function AddTarefa() {
+    const InputTarefa = document.getElementById('Tarefa');
 
-    const InputNomeContato = document.getElementById('nome-contato');
-    const inputNumeroTelefone = document.getElementById('numero-telefone');
-
-    if(NumeroTelefone.includes(inputNumeroTelefone.value)){
+    if(NomeTarefa.includes(InputTarefa.value)){
+        alert(`a tarefa ${InputTarefa.value} já foi inserida!`);
+    }else {
     
-    alert(`o numero ${inputNumeroTelefone.value} já foi adicionado`);
+    NomeTarefa.push(InputTarefa.value);
 
-    } else {
-    
-    NomeContato.push(InputNomeContato.value);
-    NumeroTelefone.push(inputNumeroTelefone.value);
-
-    let linha = '<tr>';
-    linha += `<td> ${InputNomeContato.value}`;
-    linha += `<td> ${inputNumeroTelefone.value}`;
-    linha += '</tr>';
+    let linha = `<ul>`;
+    linha += `<li> ${InputTarefa.value}`;
+    linha += `</ul>`;
 
     linhas += linha;
-
     }
-
-    InputNomeContato.value = '';
-    inputNumeroTelefone.value = '';
-
+    
+    InputTarefa.value = '';
 }
 
 function atualizaTabela(){
-
-    const CorpoTabela = document.querySelector('tbody');
-    CorpoTabela.innerHTML = linhas;
+    const Tabelaraiz = document.querySelector('ul');
+    Tabelaraiz.innerHTML = linhas;
 }
