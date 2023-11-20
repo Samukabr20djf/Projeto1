@@ -5,6 +5,10 @@ let linhas = '';
 
 form.addEventListener('submit', function(e) {
     e.preventDefault();
+
+    AddTarefa();
+    atualizaTabela();
+    
 })
 
 function AddTarefa() {
